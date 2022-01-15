@@ -1,27 +1,80 @@
+/* Google fonts link */
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:wght@500&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap'); */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
-    
     font-family: 'Poppins', sans-serif;
 }
-.head-contain{
-    max-width: 1300px;
-    margin: 0 auto;
+/*-------- Common classes ------*/
+
+.title h2{
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 80px;
+    color: #3A3A3A;
+    text-align: center;
+    margin: 50px 0;
 }
-header{
-    padding: 50px 0;
+.title-highlight{
+    color: #E02C6D;;
+}
+.btn{
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    
+    font-size: 18px;
+    font-weight: bold;
+    color: #E02C6D;
+    padding: 15px 34px;
+    border:1px solid #E02C6D;
+    border-radius: 41px;
+
+    z-index: 1;
+    transition: color .3s ease-in;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    background-color: #E02C6D; 
+    
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    
+    z-index: -1;
+    transition: transform .3s ease-in;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+.btn:hover::before{
+    transform: scaleX(1);
+}
+.btn:hover{
+    color: white;
+    cursor: pointer;
+}
+/* ----------------------- */
+
+/*---- Header nav and banner part start -----*/
+.header-contain{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0px;
 }
 .navigation{
     display: flex;
     justify-content: space-between;
     height: 80px;
     align-items: center;
-   
 }
 .nav-items{
     display: flex;
@@ -30,16 +83,22 @@ header{
    list-style: none;
 }
 .nav-items li a{
+    color: black;
     font-size: 23px;
     padding: 10px 20px;
     text-decoration: none;
+    transition: color .3s;
 }
+.nav-items li a:hover{
+    color: #E02C6D;
+    
+}
+
 /*----- Hero Area style ---------*/
 .hero-area{
-    /* color: white; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 50px;   
+    margin: 50px 0;   
 }
 .hero-area .banner-title h1{
     font-size: 52px;
@@ -53,51 +112,11 @@ header{
     color: #3A3A3A;
     margin: 26px 0;
 }
-.banner-title .btn{
-    position: relative;
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    gap: 0 10px;
-    
-    font-size: 18px;
-    font-weight: bold;
-    color: #000000;
-    padding: 15px 34px;
-    border:none;
-    border-radius: 41px;
-
-    z-index: 1;
-    transition: color .3s ease-in;
-}
-.banner-title .btn::before{
-    content: "";
-    position: absolute;
-    background-color: #E02C6D; ;
-    
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    
-    z-index: -1;
-    transition: transform .3s ease-in;
-    transform-origin: left;
-    transform: scaleX(0);
-}
-.banner-title .btn:hover::before{
-    transform: scaleX(1);
-}
-.banner-title .btn:hover{
-    color: white;
-    cursor: pointer;
-}
 .hero-area .banner-img {
    text-align: end;
 }
 .hero-area .banner-img img{
-   width: 70%;
+   width: 75%;
    transition: transform .5s ease-in-out;
 }
 .hero-area .banner-img img:hover{
@@ -110,18 +129,28 @@ header{
     align-items:flex-start;
 }
 
-/* ------- Main Section style --------- */
-.collection-contain{
+/* --------------------------------
+        Main Section style 
+    ----------------------------- */
+.main-contain{
     max-width: 1200px;
     margin: 0 auto;
 }
-.collection-contain .cards-contain{
+/* ----popular brands start----*/
+.main-contain .popular-brands{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 80px;
+}
+/*----Popular collection start-----*/
+.main-contain .cards-contain{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     grid-row-gap: 60px;
 }
-.card{
+.cards-contain .card{
     width: 326px;
     padding: 15px;
     border-radius:5px;
@@ -129,7 +158,6 @@ header{
 }
 .card img{
     width: 100%;
-    
 }
 .card .card-info h2 {
     font-weight: 500;
@@ -144,10 +172,8 @@ header{
     margin-bottom: 10px;  
 }
 .card .card-info i {
-    /* font-family: 'Inter', sans-serif; */
     font-size: 14px;
     color: rgba(252, 164, 0, 0.87);
-    
 }
 .card .card-info span{
     color: #5E6366;
@@ -161,4 +187,172 @@ header{
     font-weight: bold;
     font-size: 14px;
     line-height: 143%;
+}
+
+/* -----See More text link style ----*/
+.see-more a{
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin:40px 37px 0 0;
+    color: #E02C6D;
+    font-weight: bold;
+}
+
+/*------ Our Clients review section---- */
+.clients-review{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    justify-items: center;
+}
+.clients-review .client{
+    width: 310px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px rgb(219, 215, 215);
+    transition: transform .5s ease-in-out;
+}
+.clients-review .client:hover{
+    transform: scale(1.1);
+    background-color: rgb(248, 229, 234);
+}
+.clients-review img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.clients-review h3{
+    color: #E02C6D;
+    padding: 5px 0;
+}
+/* ---- Get in touch part styles----- */
+.contact-us{
+    display: flex;
+    align-items: center;
+}
+.contact-banner{
+    width: 50%;
+}
+.contact-info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.contact-info input{
+    font-size: 20px;
+    color: teal;
+    outline: 0;
+    padding: 15px 0px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #E02C6D;
+}
+.contact-info button{
+    margin-top: 15px;
+}
+.contact-banner{
+    text-align: center;
+}
+.contact-banner img{
+    width: 80%;
+    border-radius: 10px;
+}
+
+/* ------Footer part styles-------- */
+.footer-part{
+    text-align: center;
+    padding: 50px 20px ;
+    margin-top: 50px;
+    background-color:#0A0826 ;
+    color: white;
+    line-height: 36px;
+}
+.footer-part h1{
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+.footer-part .social i{
+    font-size: 30px;
+    margin: 30px 24px 0 0;
+    color: white;
+}
+.footer-part .social i:hover{
+    color: rgb(30, 152, 252);
+}
+/* -------------------------------
+    responsive design start here
+----------------------------------- */
+
+@media (max-width:767px){
+    .navigation{
+        justify-content: center;
+    }
+    .hero-area{
+        margin: 0; 
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0 15px;
+    }
+    .flexable-box{
+        justify-content: center;
+        align-items:center;
+    }
+    .hero-area .banner-title{
+       order: 2;
+    }
+    .hero-area .banner-title h1{
+        font-size: 30px;
+        line-height: 48px;
+    }
+    .hero-area .banner-img {
+        text-align: center;
+     }
+    
+    .main-contain{
+        padding: 0 0px;
+    }
+    .main-contain .popular-brands{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        grid-row-gap: 20px;
+    }
+    .main-contain .cards-contain{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .cards-contain .card{
+        width: 300px;
+        padding: 10px;
+    }
+    .see-more a{
+        justify-content:center;
+    }
+    .clients-review{
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 60px;  
+    }
+    .clients-review .client{
+        width: 280px;
+        padding: 10px;
+    }
+    .contact-us{
+        flex-direction: column;
+        gap: 50px;
+    }
+    .contact-info {
+        width: 100%;
+    }
+    .contact-banner{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    
 }
